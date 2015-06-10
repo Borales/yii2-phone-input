@@ -23,7 +23,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"borales\\components\\phoneInput\\": "src/"}
+        "psr-4": {"borales\\extensions\\phoneInput\\": "src/"}
     },
     "require": {
         "bower-asset/intl-tel-input": "*",
