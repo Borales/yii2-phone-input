@@ -1,0 +1,33 @@
+{
+    "name": "borales/yii2-phone-input",
+    "version": "0.0.1",
+    "description": "Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget",
+    "keywords": [
+        "yii2",
+        "intl-tel-input",
+        "international telephone numbers",
+        "libphonenumber"
+    ],
+    "minimum-stability": "dev",
+    "license": "BSD-3-Clause",
+    "type": "yii2-extension",
+    "homepage": "https://github.com/Borales/yii2-phone-input",
+    "support": {
+        "issues": "https://github.com/Borales/yii2-phone-input/issues?state=open",
+        "source": "https://github.com/Borales/yii2-phone-input"
+    },
+    "authors": [
+        {
+            "name": "Borales (Alexandr Bordun)",
+            "email": "bordun.alexandr@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"borales\\components\\phoneInput\\": "src/"}
+    },
+    "require": {
+        "bower-asset/intl-tel-input": "*",
+        "giggsey/libphonenumber-for-php": "*",
+        "yiisoft/yii2": "*"
+    }
+}
