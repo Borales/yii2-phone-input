@@ -33,4 +33,71 @@ to the `require` section of your `composer.json` file.
 
 ## Usage
 
-Docs will be available soon... 
+![Phone input](screenshot.png "Phone input")
+
+Using as an `ActiveField` widget with the preferred countries on the top:
+
+```php
+use borales\extensions\phoneInput\PhoneInput;
+
+echo $form->field($model, 'phone_number')->widget(PhoneInput::className(), [
+    'jsOptions' => [
+        'preferredCountries' => ['no', 'pl', 'ua'],
+    ]
+]);
+```
+
+Using as a simple widget with the limited countries list:
+
+```php
+use borales\extensions\phoneInput\PhoneInput;
+
+echo PhoneInput::widget([
+    'name' => 'phone_number',
+    'jsOptions' => [
+        'allowExtensions' => true,
+        'onlyCountries' => ['no', 'pl', 'ua'],
+    ]
+]);
+```
+
+Using phone validator in a model (validates the correct country code and phone format):
+
+```php
+namespace frontend\models;
+
+use borales\extensions\phoneInput\PhoneInputValidator;
+
+class Company extends Model
+{
+    public $phone;
+
+    public function rules()
+    {
+        return [
+            [['phone'], 'string'],
+            [['phone'], PhoneInputValidator::className()],
+        ];
+    }
+}
+```
+
+Using phone behavior in a model (auto-formats phone string to the required phone format):
+
+```php
+namespace frontend\models;
+
+use borales\extensions\phoneInput\PhoneInputBehavior;
+
+class Company extends Model
+{
+    public $phone;
+
+    public function behaviors()
+    {
+        return [
+            'phoneInput' => PhoneInputBehavior::className(),
+        ];
+    }
+}
+```
