@@ -26,8 +26,8 @@
         "psr-4": {"borales\\extensions\\phoneInput\\": "src/"}
     },
     "require": {
-        "bower-asset/intl-tel-input": "^8.0",
-        "giggsey/libphonenumber-for-php": "^7.0",
+        "bower-asset/intl-tel-input": "^8",
+        "giggsey/libphonenumber-for-php": "^7",
         "yiisoft/yii2": ">=2.0.1"
     }
 }
