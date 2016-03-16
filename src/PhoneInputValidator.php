@@ -47,19 +47,19 @@ class PhoneInputValidator extends Validator
 
         $telInputId = Html::getInputId($model, $attribute);
         $options = Json::htmlEncode([
-                    'message' => Yii::$app->getI18n()->format($this->message, [
-                        'attribute' => $model->getAttributeLabel($attribute)
-                            ], Yii::$app->language)
+            'message' => Yii::$app->getI18n()->format($this->message, [
+                'attribute' => $model->getAttributeLabel($attribute)
+            ], Yii::$app->language)
         ]);
 
         return <<<JS
-            var options = $options,
-                telInput = $("#$telInputId");
-            if($.trim(telInput.val())){
-                if(!telInput.intlTelInput("isValidNumber")){
-                    messages.push(options.message);
-                }
-            }
+var options = $options, telInput = $("#$telInputId");
+
+if($.trim(telInput.val())){
+    if(!telInput.intlTelInput("isValidNumber")){
+        messages.push(options.message);
+    }
+}
 JS;
     }
 }
