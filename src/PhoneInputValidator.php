@@ -47,9 +47,9 @@ class PhoneInputValidator extends Validator
 
         $telInputId = Html::getInputId($model, $attribute);
         $options = Json::htmlEncode([
-            'message' => Yii::$app->getI18n()->format($this->message, [
+            'message' => \Yii::$app->getI18n()->format($this->message, [
                 'attribute' => $model->getAttributeLabel($attribute)
-            ], Yii::$app->language)
+            ], \Yii::$app->language)
         ]);
 
         return <<<JS
