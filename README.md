@@ -2,8 +2,8 @@ Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget
 ================================================================================
 
 [![Latest Stable Version](https://poser.pugx.org/borales/yii2-phone-input/v/stable.svg)](https://packagist.org/packages/borales/yii2-phone-input)
-[![Total Downloads](https://poser.pugx.org/borales/yii2-phone-input/downloads.svg)](https://packagist.org/packages/borales/yii2-phone-input) 
-[![Latest Unstable Version](https://poser.pugx.org/borales/yii2-phone-input/v/unstable.svg)](https://packagist.org/packages/borales/yii2-phone-input) 
+[![Total Downloads](https://poser.pugx.org/borales/yii2-phone-input/downloads.svg)](https://packagist.org/packages/borales/yii2-phone-input)
+[![Latest Unstable Version](https://poser.pugx.org/borales/yii2-phone-input/v/unstable.svg)](https://packagist.org/packages/borales/yii2-phone-input)
 [![License](https://poser.pugx.org/borales/yii2-phone-input/license.svg)](https://packagist.org/packages/borales/yii2-phone-input)
 
 This extension uses 2 libraries:
@@ -77,6 +77,28 @@ class Company extends Model
         return [
             [['phone'], 'string'],
             [['phone'], PhoneInputValidator::className()],
+        ];
+    }
+}
+```
+
+or if you need to validate phones of some countries:
+
+```php
+namespace frontend\models;
+
+use borales\extensions\phoneInput\PhoneInputValidator;
+
+class Company extends Model
+{
+    public $phone;
+
+    public function rules()
+    {
+        return [
+            [['phone'], 'string'],
+            // [['phone'], PhoneInputValidator::className(), 'region' => 'UA'],
+            [['phone'], PhoneInputValidator::className(), 'region' => ['PL', 'UA']],
         ];
     }
 }
