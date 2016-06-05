@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.0.5 (June 05, 2016)
+
+- Added validation of countries (thanks to @RichWeber)
+
 ## 0.0.4 (April 12, 2016)
 
 - Namespace fix (thanks to @sample-game)

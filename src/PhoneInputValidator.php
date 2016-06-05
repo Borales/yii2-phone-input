@@ -14,6 +14,14 @@ use yii\helpers\Json;
  */
 class PhoneInputValidator extends Validator
 {
+    /**
+     * @var mixed
+     */
+    public $region;
+
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         if (!$this->message) {
@@ -32,14 +40,31 @@ class PhoneInputValidator extends Validator
         $phoneUtil = PhoneNumberUtil::getInstance();
         try {
             $phoneProto = $phoneUtil->parse($value, null);
-            if ($phoneUtil->isValidNumber($phoneProto)) {
-                $valid = true;
+
+            if ($this->region !== null) {
+                if (is_array($this->region)) {
+                    foreach ($this->region as $region) {
+                        if ($phoneUtil->isValidNumberForRegion($phoneProto, $region)) {
+                            $valid = true;
+                            break;
+                        }
+                    }
+                } else {
+                    if ($phoneUtil->isValidNumberForRegion($phoneProto, $this->region)) {
+                        $valid = true;
+                    }
+                }
+            } else {
+                if ($phoneUtil->isValidNumber($phoneProto)) {
+                    $valid = true;
+                }
             }
+
         } catch (NumberParseException $e) {
         }
         return $valid ? null : [$this->message, []];
     }
-    
+
     /**
      * @inheritdoc
      */

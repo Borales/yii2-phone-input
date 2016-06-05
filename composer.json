@@ -1,6 +1,6 @@
 {
     "name": "borales/yii2-phone-input",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget",
     "keywords": [
         "yii2",
