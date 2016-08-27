@@ -4,6 +4,7 @@ namespace borales\extensions\phoneInput;
 
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberUtil;
+use libphonenumber\PhoneNumberType;
 use yii\validators\Validator;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -18,6 +19,10 @@ class PhoneInputValidator extends Validator
      * @var mixed
      */
     public $region;
+    /**
+     * @var integer
+     */
+    public $type;
 
     /**
      * @inheritdoc
@@ -57,6 +62,12 @@ class PhoneInputValidator extends Validator
             } else {
                 if ($phoneUtil->isValidNumber($phoneProto)) {
                     $valid = true;
+                }
+            }
+
+            if ($this->type !== null) {
+                if (PhoneNumberType::UNKNOWN != $type = $phoneUtil->getNumberType($phoneProto)) {
+                    $valid = $valid && $type == $this->type;
                 }
             }
 
