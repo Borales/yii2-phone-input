@@ -15,11 +15,17 @@ use yii\db\BaseActiveRecord;
  */
 class PhoneInputBehavior extends AttributeBehavior
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     public $saveformat = PhoneNumberFormat::E164;
-    /** @var int */
-    public $displayformat = PhoneNumberFormat::INTERNATIONAL;
-    /** @var string */
+    /**
+     * @var int
+     */
+    public $displayFormat = PhoneNumberFormat::INTERNATIONAL;
+    /**
+     * @var string
+     */
     public $phoneAttribute = 'phone';
 
     public function init()
@@ -27,8 +33,7 @@ class PhoneInputBehavior extends AttributeBehavior
         parent::init();
         if (empty($this->attributes)) {
             $this->attributes = [
-                BaseActiveRecord::EVENT_BEFORE_INSERT => $this->phoneAttribute,
-                BaseActiveRecord::EVENT_BEFORE_UPDATE => $this->phoneAttribute,
+                BaseActiveRecord::EVENT_BEFORE_VALIDATE => $this->phoneAttribute,
                 BaseActiveRecord::EVENT_AFTER_FIND => $this->phoneAttribute,
             ];
         }
@@ -75,7 +80,7 @@ class PhoneInputBehavior extends AttributeBehavior
                 if (is_string($attribute) && $this->owner->$attribute) {
                     try {
                         $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, null);
-                        $this->owner->$attribute = $this->getPhoneUtil()->format($phoneValue, $this->displayformat);
+                        $this->owner->$attribute = $this->getPhoneUtil()->format($phoneValue, $this->displayFormat);
                     } catch (NumberParseException $e) {
                     }
                 }
