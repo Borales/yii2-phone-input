@@ -23,10 +23,16 @@
         }
     ],
     "autoload": {
-        "psr-4": {"borales\\extensions\\phoneInput\\": "src/"}
+        "psr-4": {
+            "borales\\extensions\\phoneInput\\": "src/"
+        }
     },
+    "repositories": [{
+        "type": "composer",
+        "url": "https://asset-packagist.org"
+    }],
     "require": {
-        "bower-asset/intl-tel-input": "*",
+        "bower-asset/intl-tel-input": "^10",
         "giggsey/libphonenumber-for-php": "^8",
         "yiisoft/yii2": ">=2.0.1"
     }

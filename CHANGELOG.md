@@ -2,7 +2,8 @@
 
 ## 0.1.0 (*under development*)
 
-- Enh [#22](https://github.com/Borales/yii2-phone-input/issues/22): Updgrading `libphonenumber-for-php` library to the latest major release
+- Enh: Updgrading `bower-asset/intl-tel-input` to the latest major release (v10)
+- Enh [#22](https://github.com/Borales/yii2-phone-input/issues/22): Updgrading `libphonenumber-for-php` library to the latest major release (v8)
 - Enh [#16](https://github.com/Borales/yii2-phone-input/pull/16): Validating phone number by type (thanks to [@andrey82k](https://github.com/andrey82k))
 - Bug [#17](https://github.com/Borales/yii2-phone-input/issues/17): Fixing `PhoneInputValidator` to work with `unique` validation rule
 
