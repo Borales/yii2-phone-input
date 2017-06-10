@@ -123,3 +123,7 @@ class Company extends Model
     }
 }
 ```
+
+> Note: `nationalMode` option is very important! In case if you want to manage phone numbers with country/operator code
+- you have to set `nationalMode: false` in widget options 
+(for example, `PhoneInput::widget(...options, ['jsOptions' => ['nationalMode' => false]])`).
