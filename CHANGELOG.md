@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.1 (June 11, 2017)
+
+- Enh: Using `bower-asset/intl-tel-input: "^11"` dependency
+
 ## 0.1.0 (June 10, 2017)
 
 - Enh: Using `bower-asset/intl-tel-input: "^10"` dependency
