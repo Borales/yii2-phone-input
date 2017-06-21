@@ -27,6 +27,10 @@ class PhoneInputBehavior extends AttributeBehavior
      * @var string
      */
     public $phoneAttribute = 'phone';
+    /**
+     * @var string
+     */
+    public $default_region;
 
     public function init()
     {
@@ -60,7 +64,7 @@ class PhoneInputBehavior extends AttributeBehavior
             foreach ($attributes as $attribute) {
                 if (is_string($attribute) && $this->owner->$attribute) {
                     try {
-                        $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, null);
+                        $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, $this->default_region);
                         $this->owner->$attribute = $this->getPhoneUtil()->format($phoneValue, $this->saveformat);
                     } catch (NumberParseException $e) {
                     }
@@ -79,7 +83,7 @@ class PhoneInputBehavior extends AttributeBehavior
             foreach ($attributes as $attribute) {
                 if (is_string($attribute) && $this->owner->$attribute) {
                     try {
-                        $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, null);
+                        $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, $this->default_region);
                         $this->owner->$attribute = $this->getPhoneUtil()->format($phoneValue, $this->displayFormat);
                     } catch (NumberParseException $e) {
                     }
