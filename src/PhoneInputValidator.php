@@ -44,17 +44,17 @@ class PhoneInputValidator extends Validator
         $valid = false;
         $phoneUtil = PhoneNumberUtil::getInstance();
         try {
-            $phoneProto = $phoneUtil->parse($value, null);
-
             if ($this->region !== null) {
                 $regions = is_array($this->region) ? $this->region : [$this->region];
                 foreach ($regions as $region) {
+                    $phoneProto = $phoneUtil->parse($value, $region);
                     if ($phoneUtil->isValidNumberForRegion($phoneProto, $region)) {
                         $valid = true;
                         break;
                     }
                 }
             } else {
+                $phoneProto = $phoneUtil->parse($value, null);
                 if ($phoneUtil->isValidNumber($phoneProto)) {
                     $valid = true;
                 }
