@@ -124,6 +124,32 @@ class Company extends Model
 }
 ```
 
+You can also thanks to this behavior save to database country code of the phone number. Just add your attribute as
+ `countryCodeAttribute` and it'll be inserted into database with the phone number.
+
+
+```php
+namespace frontend\models;
+
+use borales\extensions\phoneInput\PhoneInputBehavior;
+
+class Company extends Model
+{
+    public $phone;
+    public $countryCode;
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => PhoneInputBehavior::className(),
+                'countryCodeAttribute' => 'countryCode',
+            ],
+        ];
+    }
+}
+```
+
 > Note: `nationalMode` option is very important! In case if you want to manage phone numbers with country/operator code
 - you have to set `nationalMode: false` in widget options 
 (for example, `PhoneInput::widget(...options, ['jsOptions' => ['nationalMode' => false]])`).

@@ -28,6 +28,11 @@ class PhoneInputBehavior extends AttributeBehavior
      */
     public $phoneAttribute = 'phone';
 
+    /**
+     * @var string
+     */
+    public $countryCodeAttribute = null;
+
     public function init()
     {
         parent::init();
@@ -62,6 +67,9 @@ class PhoneInputBehavior extends AttributeBehavior
                     try {
                         $phoneValue = $this->getPhoneUtil()->parse($this->owner->$attribute, null);
                         $this->owner->$attribute = $this->getPhoneUtil()->format($phoneValue, $this->saveformat);
+                        if ($this->countryCodeAttribute != null) {
+                            $this->owner->{$this->countryCodeAttribute} = $phoneValue->getCountryCode();
+                        }
                     } catch (NumberParseException $e) {
                     }
                 }

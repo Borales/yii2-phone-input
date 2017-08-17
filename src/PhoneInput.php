@@ -28,7 +28,7 @@ class PhoneInput extends InputWidget
         $jsOptions = $this->jsOptions ? Json::encode($this->jsOptions) : "";
         $this->view->registerJs("$('#$id').intlTelInput($jsOptions);");
         if($this->hasModel()) {
-            $this->view->registerJs("$('#$id').parents('form').on('submit', function() { $('#$id').val(input.intlTelInput('getNumber')); })");
+            $this->view->registerJs("$('#$id').parents('form').on('submit', function() { $('#$id').val($('#$id').intlTelInput('getNumber')); })");
         }
     }
 
