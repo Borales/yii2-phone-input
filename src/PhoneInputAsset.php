@@ -1,6 +1,6 @@
 <?php
 
-namespace borales\extensions\phoneInput;
+namespace aklim\extensions\phoneInput;
 
 use yii\web\AssetBundle;
 
