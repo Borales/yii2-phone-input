@@ -1,6 +1,6 @@
 {
   "name": "aklim/yii2-phone-input",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget",
   "keywords": [
     "yii2",
