@@ -29,9 +29,27 @@ class PhoneInput extends InputWidget
         PhoneInputAsset::register($this->view);
         $id = ArrayHelper::getValue($this->options, 'id');
         $jsOptions = $this->jsOptions ? Json::encode($this->jsOptions) : "";
-        $this->view->registerJs("$('#$id').intlTelInput($jsOptions);");
-        if($this->hasModel()) {
-            $this->view->registerJs("$('#$id').parents('form').on('submit', function() { $('#$id').val($('#$id').intlTelInput('getNumber')); })");
+        $jsInit = <<<JS
+(function ($) {
+    "use strict";
+    $('#$id').intlTelInput($jsOptions);
+})(jQuery);
+JS;
+        $this->view->registerJs($jsInit);
+        if ($this->hasModel()) {
+            $js = <<<JS
+(function ($) {
+    "use strict";
+    $('#$id')
+    .parents('form')
+    .on('submit', function() {
+        $('#$id')
+        .val($('#$id')
+        .intlTelInput('getNumber'));
+    });
+})(jQuery);
+JS;
+            $this->view->registerJs($js);
         }
     }
 
