@@ -36,7 +36,8 @@ class PhoneInput extends InputWidget
 })(jQuery);
 JS;
         $this->view->registerJs($jsInit);
-        $js = <<<JS
+        if ($this->hasModel()) {
+            $js = <<<JS
 (function ($) {
     "use strict";
     $('#$id')
@@ -48,7 +49,6 @@ JS;
     });
 })(jQuery);
 JS;
-        if($this->hasModel()) {
             $this->view->registerJs($js);
         }
     }
