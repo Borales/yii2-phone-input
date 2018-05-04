@@ -28,7 +28,7 @@
         }
     },
     "require": {
-        "bower-asset/intl-tel-input": "^11",
+        "bower-asset/intl-tel-input": "^12",
         "giggsey/libphonenumber-for-php": "^8",
         "yiisoft/yii2": ">=2.0.1"
     }
