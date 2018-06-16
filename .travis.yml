@@ -25,5 +25,5 @@ install:
 #      PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
 #    fi
 
-#script:
+# script:
 #  - phpunit --verbose $PHPUNIT_FLAGS
