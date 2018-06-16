@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2 (work in progress...)
+
+- Fix: `bower-asset/intl-tel-input` composer dependency (via `asset-packagist.org` repository)
+
 ## 0.1.1 (June 11, 2017)
 
 - Enh: Using `bower-asset/intl-tel-input: "^11"` dependency
