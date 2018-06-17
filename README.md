@@ -5,7 +5,7 @@ Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget
 [![Total Downloads](https://poser.pugx.org/borales/yii2-phone-input/downloads.svg)](https://packagist.org/packages/borales/yii2-phone-input)
 [![Latest Unstable Version](https://poser.pugx.org/borales/yii2-phone-input/v/unstable.svg)](https://packagist.org/packages/borales/yii2-phone-input)
 [![License](https://poser.pugx.org/borales/yii2-phone-input/license.svg)](https://packagist.org/packages/borales/yii2-phone-input)
-[![Build Status](https://travis-ci.org/Borales/yii2-phone-input.svg?branch=master)](https://travis-ci.org/Borales/yii2-phone-input)
+[![Build Status](https://travis-ci.com/Borales/yii2-phone-input.svg?branch=master)](https://travis-ci.org/Borales/yii2-phone-input)
 
 This extension uses 2 libraries:
 
