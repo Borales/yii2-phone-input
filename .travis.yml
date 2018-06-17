@@ -19,11 +19,11 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - travis_retry composer install --prefer-dist --no-interaction
 
-# before_script:
-#  - |
-#    if [ $TRAVIS_PHP_VERSION = '5.6' ]; then
-#      PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
-#    fi
+before_script:
+  - |
+    if [ $TRAVIS_PHP_VERSION = '5.6' ]; then
+      PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
+    fi
 
-# script:
-#  - phpunit --verbose $PHPUNIT_FLAGS
+script:
+  - phpunit --verbose $PHPUNIT_FLAGS
