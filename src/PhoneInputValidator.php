@@ -81,7 +81,6 @@ class PhoneInputValidator extends Validator
      */
     public function clientValidateAttribute($model, $attribute, $view) {
 
-        $telInputId = Html::getInputId($model, $attribute);
         $options = Json::htmlEncode([
             'message' => \Yii::$app->getI18n()->format($this->message, [
                 'attribute' => $model->getAttributeLabel($attribute)
@@ -89,7 +88,7 @@ class PhoneInputValidator extends Validator
         ]);
 
         return <<<JS
-var options = $options, telInput = $("#$telInputId");
+var options = $options, telInput = $(attribute.input);;
 
 if($.trim(telInput.val())){
     if(!telInput.intlTelInput("isValidNumber")){
