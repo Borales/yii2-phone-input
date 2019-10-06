@@ -17,7 +17,7 @@ class PhoneInputAsset extends AssetBundle
     /** @var array */
     public $js = [
         'build/js/utils.js',
-        'build/js/intlTelInput.min.js',
+        'build/js/intlTelInput-jquery.js',
     ];
     /** @var array */
     public $depends = ['yii\web\JqueryAsset'];
