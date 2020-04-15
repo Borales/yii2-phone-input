@@ -58,7 +58,7 @@ JS;
      */
     public function run()
     {
-        $options = ArrayHelper::merge($this->defaultOptions, $this->options);
+        $options = ArrayHelper::merge($this->options, $this->defaultOptions);
         if ($this->hasModel()) {
             return Html::activeInput($this->htmlTagType, $this->model, $this->attribute, $options);
         }
